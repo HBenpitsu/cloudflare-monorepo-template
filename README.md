@@ -2,7 +2,7 @@
 
 記入してください
 
-# コンテナの構成
+# コンテナ
 
 +-Devcontainer-(DinD)---------------+
 | Docker操作スクリプト/git操作      |
@@ -37,3 +37,10 @@ npmパッケージで多発する攻撃への対策のため, 最低限の作業
 > Dockerの操作スクリプトは, Devcontainerの内部で動作させれば, ホストOSによらずに使用可能.
 > DevcontainerはDockerの操作のためだけに用意してあるので, 必ずしも利用しなければならないわけではない.
 >
+
+## コンテナへの接続
+
+`docker-compose up`でコンテナを立ち上げ, `docker-compose exec`でシェルを起動すれば接続できます.
+複雑な作業ではありませんが, 一応`./script/host/stepin.sh`を用意しています.
+
+`./script/host/stepin.sh`を実行すれば対話的に接続のための案内が表示されます.

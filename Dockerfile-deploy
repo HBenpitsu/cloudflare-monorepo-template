@@ -1,4 +1,5 @@
 FROM node:24-slim
 WORKDIR /workspace
-
-RUN npm install -g npm, wrangler
+RUN echo 'export PS1="[deploy]\$ "' >> ~/.bashrc
+RUN npm install -g npm
+RUN npm install -g wrangler
