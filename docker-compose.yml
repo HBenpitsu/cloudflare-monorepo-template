@@ -7,7 +7,7 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - .:$PWD
-    workdir: $PWD/src
+    working_dir: $PWD/src
     ports:
       - "8080:8080"
       - "3000:3000"
@@ -21,7 +21,7 @@ services:
       dockerfile: Dockerfile.deploy
     volumes:
       - .:$PWD
-    workdir: $PWD/scripts/deploy
+    working_dir: $PWD/scripts/deploy
     # 対話的コンテナのための設定
     tty: true
     stdin_open: true
