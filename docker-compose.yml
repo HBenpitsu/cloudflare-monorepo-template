@@ -8,6 +8,9 @@ services:
     volumes:
       - ./src:/src
       - ./script:/script/dev:ro
+    ports:
+      - "8080:8080"
+      - "3000:3000"
     # 対話的コンテナのための設定
     tty: true
     stdin_open: true
