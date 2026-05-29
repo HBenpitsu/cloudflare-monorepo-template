@@ -1,5 +1,0 @@
-FROM node:24
-WORKDIR /src
-RUN npm install -g npm
-RUN npm install -g wrangler
-RUN echo 'export PS1="[dev \$(pwd)]\$ "' >> ~/.bashrc
