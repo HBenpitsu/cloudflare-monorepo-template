@@ -4,29 +4,27 @@ services:
   dev:
     build:
       context: .
-      dockerfile: Dockerfile-dev
+      dockerfile: Dockerfile.dev
     volumes:
       - ./src:/src
-      - ./script:/script/dev:ro
+      - ./script/dev:/script/dev:ro
     ports:
       - "8080:8080"
       - "3000:3000"
     # 対話的コンテナのための設定
     tty: true
     stdin_open: true
-    command: ["sleep", "infinity"]
 
   deploy:
     build:
       context: .
-      dockerfile: Dockerfile-deploy
+      dockerfile: Dockerfile.deploy
     volumes:
       - ./src:/src:ro
-      - ./script:/script/deploy:ro
+      - ./script/deploy:/script/deploy:ro
     # 対話的コンテナのための設定
     tty: true
     stdin_open: true
-    command: ["sleep", "infinity"]
     profiles: ["deploy"]
     # クレデンシャルの環境変数による引き渡し設定
     env_file:
