@@ -44,3 +44,21 @@ npmパッケージで多発する攻撃への対策のため, 最低限の作業
 複雑な作業ではありませんが, 一応`./stepin.sh`を用意しています.
 
 `./stepin.sh`を実行すれば対話的に接続のための案内が表示されます.
+
+# リソースの追加
+
+workerの分割を前提とする.
+workerを分割しない場合は, Next.jsのようなフルスタックフレームワークが有用な選択肢となるが,
+backend/frontendでのworkerの分離を前提とする場合, Next.jsはよい選択肢ではない.
+
+backend workerなら, 
+```
+[dev] npm create cloudflare@latest
+```
+でhonoフレームワークを選択することを奨める.
+
+frontendなら, 
+```
+[dev] npm create vite@latest
+```
+でframework: React/router: TanStack Router/deploy: Cloudflareを選択することを奨める.
