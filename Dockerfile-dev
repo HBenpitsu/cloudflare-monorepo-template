@@ -3,4 +3,3 @@ WORKDIR /src
 RUN npm install -g npm
 RUN npm install -g wrangler
 RUN echo 'export PS1="[dev \$(pwd)]\$ "' >> ~/.bashrc
-RUN yes | (curl -fsSL https://vite.plus | bash)
