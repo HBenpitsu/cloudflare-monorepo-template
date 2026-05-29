@@ -2,4 +2,5 @@ FROM node:24
 RUN npm install -g npm
 RUN npm install -g wrangler
 RUN echo 'export PS1="[dev \$(pwd)]\$ "' >> ~/.bashrc
+RUN echo 'chmod +x /repo/script/dev/setup.sh && /repo/script/dev/setup.sh' >> ~/.bashrc
 CMD ["sleep", "infinity"]

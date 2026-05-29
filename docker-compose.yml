@@ -6,10 +6,9 @@ services:
       context: .
       dockerfile: Dockerfile.dev
     volumes:
-      - .:$PWD
-    working_dir: $PWD/src
+      - .:/repo
+    working_dir: /repo/src
     ports:
-      - "8080:8080"
       - "3000:3000"
     # 対話的コンテナのための設定
     tty: true
@@ -20,8 +19,8 @@ services:
       context: .
       dockerfile: Dockerfile.deploy
     volumes:
-      - .:$PWD
-    working_dir: $PWD/scripts/deploy
+      - .:/repo
+    working_dir: /repo/script/deploy
     # 対話的コンテナのための設定
     tty: true
     stdin_open: true
@@ -29,9 +28,6 @@ services:
     # クレデンシャルの環境変数による引き渡し設定
     env_file:
       - .env
-    environment:
-      - CLOUDFLARE_API_TOKEN
-      - CLOUDFLARE_ACCOUNT_ID
     # セキュリティ強化のための制限
     security_opt:
       - no-new-privileges:true
