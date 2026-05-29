@@ -1,5 +1,5 @@
 FROM node:24
 WORKDIR /workspace
-RUN echo 'export PS1="[dev]\$ "' >> ~/.bashrc
 RUN npm install -g npm
 RUN npm install -g wrangler
+RUN echo 'export PS1="[dev \$(pwd)]\$ "' >> ~/.bashrc
