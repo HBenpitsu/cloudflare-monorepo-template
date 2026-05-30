@@ -1,6 +1,8 @@
 FROM node:24
 RUN npm install -g npm
 RUN npm install -g wrangler
-RUN echo 'export PS1="[deploy \$(pwd)]\$ "' >> ~/.bashrc
-RUN echo 'chmod +x /repo/script/deploy/setup.sh && /repo/script/deploy/setup.sh' >> ~/.bashrc
+RUN cat <<'EOF' >> ~/.bashrc
+export PS1="[deploy \$(pwd)]\$ "
+chmod +x /repo/script/deploy/setup.sh && /repo/script/deploy/setup.sh
+EOF
 CMD ["sleep", "infinity"]

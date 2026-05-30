@@ -7,9 +7,12 @@ services:
       dockerfile: Dockerfile.dev
     volumes:
       - .:/repo
+      - ./script/dev:/script
     working_dir: /repo/src
     ports:
-      - "3000:3000"
+      - "127.0.0.1:3000:3000"
+      - "127.0.0.1:8787:8787"
+    command: sh -c "chmod +x /script/oncreate.sh && /script/oncreate.sh ; sleep infinity"
     # 対話的コンテナのための設定
     tty: true
     stdin_open: true

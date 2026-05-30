@@ -1,6 +1,12 @@
 FROM node:24
 RUN npm install -g npm
 RUN npm install -g wrangler
-RUN echo 'export PS1="[dev \$(pwd)]\$ "' >> ~/.bashrc
-RUN echo 'chmod +x /repo/script/dev/setup.sh && /repo/script/dev/setup.sh' >> ~/.bashrc
+RUN apt update && apt install -y byobu && rm -rf /var/lib/apt/lists/*
+RUN cat <<'EOF' >> ~/.bashrc
+export PS1="[dev \$(pwd)]\$ "
+chmod +x /repo/script/dev/onentry.sh && /repo/script/dev/onentry.sh
+EOF
+RUN cat <<EOF > ~/.tmux.conf
+set-option -g mouse on
+EOF
 CMD ["sleep", "infinity"]
